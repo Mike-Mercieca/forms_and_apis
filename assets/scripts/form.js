@@ -15,13 +15,22 @@ function addListItem(text) {
   container.appendChild(newLiElement);
 }
 
-//Listen to the button and wait for click
 
-document.getElementById("first-button").addEventListener("click", (e) => {
+function handleFormSubmit (e) {
 
-    //Get the texbox's value
-    const text = document.getElementById("input-box").value;
+    //Stop the page refreshing
+    e.preventDefault();
 
-    addListItem(text)
+    //Get reference to the form
+    const form = e.target;
 
-})
+    addListItem(form.name.value);
+
+    console.log(form.name.value);
+    console.log(form.age.value);
+
+}
+
+
+
+document.getElementById("id-form").addEventListener("submit", handleFormSubmit)
